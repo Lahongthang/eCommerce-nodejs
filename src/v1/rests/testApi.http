@@ -1,0 +1,23 @@
+@url=http://localhost:8080
+
+### Test
+GET {{url}}/checkStatus
+
+
+### Set key
+PUT {{url}}/api/v1/user
+Content-Type: application/json
+
+{
+    "key": "b",
+    "payload": "b"
+}
+
+
+### Get key
+POST {{url}}/api/v1/users
+Content-Type: application/json
+
+{
+    "key": "b"
+}
