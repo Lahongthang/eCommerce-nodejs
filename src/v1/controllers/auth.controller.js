@@ -1,6 +1,6 @@
 'use strict';
 
-const { register, verifyOtp } = require('../services/auth.service');
+const { register, verifyOtp, login } = require('../services/auth.service');
 
 module.exports = {
     register: async (req, res, next) => {
@@ -16,6 +16,14 @@ module.exports = {
         try {
             const { code, message, elements } = await verifyOtp(req.body);
             res.status(code).json({ code, message, elements });
+        } catch (error) {
+            next(error);
+        };
+    },
+    login: async (req, res, next) => {
+        try {
+            const { code, message, elements } = await login(req.body);
+            return res.status(code).json({ code, message, elements });
         } catch (error) {
             next(error);
         };

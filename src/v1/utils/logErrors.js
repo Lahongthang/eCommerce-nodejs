@@ -5,7 +5,6 @@ const path = require('path');
 const fileName = path.join(__dirname, '../logs', 'errorLogs.log');
 
 const logErrors = (id, url, method, msg) => {
-    console.log({fileName});
     const dateTime = format(new Date(), 'dd-MM-yyyy\tHH:mm:ss');
     const contentLog = `${id}---${dateTime}---${url}---${method}---${msg}\n`;
     try {

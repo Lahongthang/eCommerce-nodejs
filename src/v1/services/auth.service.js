@@ -8,6 +8,7 @@ const { insertOtp } = require('../services/otp.service');
 const { generateOtp } = require('../utils/generateOtp');
 const { transportEmail } = require('../utils/transportEmail');
 const { isValidCode } = require('../utils/generateHashCode');
+const { signAccessToken, signRefreshToken } = require('../utils/generateToken');
 
 module.exports = {
     register: async (data) => {
@@ -105,6 +106,41 @@ module.exports = {
         } catch (error) {
             await session.abortTransaction();
             session.endSession();
+            throw error;
+        };
+    },
+    login: async (data) => {
+        try {
+            const { username, password } = data;
+            const user = await _User.findOne({
+                $or: [
+                    { username: { $regex: new RegExp(username, 'i') } },
+                    { email: { $regex: new RegExp(username, 'i') } },
+                ]
+            });
+
+            if (user) {
+                const isValidPassword = await isValidCode(password, user.password);
+                if (isValidPassword) {
+                    const accessToken = signAccessToken(user._id);
+                    const refreshToken = signRefreshToken(user._id);
+                    return {
+                        code: 200,
+                        message: 'Login success!',
+                        elements: {
+                            user,
+                            accessToken,
+                            refreshToken,
+                        },
+                    };
+                };
+            };
+
+            return {
+                code: 422,
+                message: 'User name or password is incorrect!',
+            };
+        } catch (error) {
             throw error;
         };
     },
