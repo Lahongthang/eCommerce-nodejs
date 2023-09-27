@@ -19,6 +19,8 @@
     "helmet": "^7.0.0",
     "http-errors": "^2.0.0",
     "mongoose": "^7.5.2",
+    "nodemailer": "^6.9.5",
+    "otp-generator": "^4.0.1",
     "redis": "^4.6.10",
     "util": "^0.12.5",
     "uuid": "^9.0.1"
