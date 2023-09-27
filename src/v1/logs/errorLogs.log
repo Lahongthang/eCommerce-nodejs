@@ -5,3 +5,8 @@ d9c06998-5b99-4fa9-8c85-fd58456ed50f---26-09-2023	11:51:01---/api/v1/user---PUT-
 61d14014-df92-4a95-9436-f92b4ae96004---26-09-2023	13:09:37---/api/v1/user---PUT---The "original" argument must be of type function. Received an instance of Promise
 459f8e61-4ec3-457e-89a0-ef90c2df670d---26-09-2023	14:42:38---/api/v1/user---PUT---Invalid argument type
 ad8f645b-fa9f-4231-8c28-1e7eaae5374b---26-09-2023	14:43:27---/api/v1/user---PUT---Invalid argument type
+48d9cdaa-a894-49b5-9d44-5ddd2dd77502---26-09-2023	16:15:55---/api/v1/users---GET---Not Found
+c2518cce-8b73-4e06-b285-38601546d350---26-09-2023	16:16:51---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms
+f9dc5ed2-f220-4a65-abd4-63973352740b---27-09-2023	17:47:07---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms
+c5a2bc92-ed2d-46ca-9b62-8d91caea5d0e---27-09-2023	17:51:11---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms
+4eb043cf-a5da-4169-83de-4d15fedaa9d2---27-09-2023	17:52:01---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms

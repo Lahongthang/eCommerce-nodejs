@@ -1,14 +1,26 @@
 const mongoose = require('mongoose');
 const { MONGODB_URI } = require('../configs/app');
 
-mongoose.connect(MONGODB_URI)
-    .then(() => console.log('Connect to mongodb success!'))
-    .catch((err) => console.error('Mongodb connection error: ', err));
+const newConnection =(uri) => {
+    const conn = mongoose.createConnection(uri);
 
-mongoose.set('debug', true);
+    conn.on('connected', () => {
+        console.log('Mongodb connected: ', uri);
+    });
 
-mongoose.set('debug', { color: false });
+    conn.on('disconnected', () => {
+        console.log('Mongodb disconnected: ', uri);
+    });
 
-mongoose.set('debug', { shell: true });
+    conn.on('error', (error) => {
+        console.log('Mongodb connection error: ', error);
+    });
 
-module.exports = mongoose;
+    return conn;
+};
+
+const eCommerceConnection = newConnection(MONGODB_URI);
+
+module.exports = {
+    eCommerceConnection,
+};

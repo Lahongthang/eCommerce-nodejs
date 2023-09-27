@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
+const { eCommerceConnection } = require('../databases/init.mongodb');
+const { generateHashCode } = require('../utils/generateHashCode');
 
 const UserSchema = new Schema({
     username: { type: String, required: true, unique: true },
@@ -12,4 +14,14 @@ const UserSchema = new Schema({
     timestamps: true,
 });
 
-module.exports = model('users', UserSchema);
+UserSchema.pre('save', async function(next) {
+    try {
+      const hasPassword = await generateHashCode(this.password);
+      this.password = hasPassword;
+      next();
+    } catch (error) {
+        next(error);
+    };
+});
+
+module.exports = eCommerceConnection.model('users', UserSchema);
