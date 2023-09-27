@@ -38,3 +38,15 @@ Content-Type: application/json
     "email": "thangla2013@gmail.com",
     "password": "11111111"
 }
+
+
+### Verify otp
+POST {{baseUrl}}/auth/verifyOtp
+Content-Type: application/json
+
+{
+    "username": "Thang1",
+    "email": "thangla2013@gmail.com",
+    "password": "11111111",
+    "otp": "751563"
+}

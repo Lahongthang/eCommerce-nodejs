@@ -1,5 +1,5 @@
 const { Schema } = require('mongoose');
-const { eCommerceConnection } = require('../databases/init.mongodb');
+const { eCommerceDb } = require('../databases/init.mongodb');
 const { generateHashCode } = require('../utils/generateHashCode');
 
 const OtpSchema = new Schema({
@@ -20,4 +20,4 @@ OtpSchema.pre('save', async function(next) {
     };
 });
 
-module.exports = eCommerceConnection.model('otps', OtpSchema);
+module.exports = eCommerceDb.model('otps', OtpSchema);

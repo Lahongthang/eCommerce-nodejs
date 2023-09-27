@@ -1,9 +1,13 @@
 'use strict';
 
+const { isEmpty } = require('lodash');
 const _User = require('../models/user.model');
+const _Otp = require('../models/otp.model');
+const { eCommerceDb } = require('../databases/init.mongodb');
 const { insertOtp } = require('../services/otp.service');
 const { generateOtp } = require('../utils/generateOtp');
 const { transportEmail } = require('../utils/transportEmail');
+const { isValidCode } = require('../utils/generateHashCode');
 
 module.exports = {
     register: async (data) => {
@@ -38,6 +42,69 @@ module.exports = {
                 elements: 1,
             };
         } catch (error) {
+            throw error;
+        };
+    },
+    verifyOtp: async (data) => {
+        const session = await eCommerceDb.startSession();
+        try {
+            const { otp, email, username, password } = data;
+            const otpHolder = await _Otp.find({
+                email: { $regex: new RegExp(email, 'i') }
+            });
+            
+            if (isEmpty(otpHolder)) return {
+                code: 422,
+                message: 'Expired otp!',
+            };
+
+            const lastOtp = otpHolder[otpHolder.length - 1]
+
+            const isValidOtp = await isValidCode(otp, lastOtp.otp);
+
+            if (!isValidOtp ) return {
+                code: 422,
+                message: 'Invalid otp!',
+            };
+
+            if (isValidOtp && email === lastOtp.email) {
+                const existedUser = await _User.findOne({
+                    $or: [
+                        { email: { $regex: new RegExp(email, 'i') } },
+                        { username: { $regex: new RegExp(username, 'i') } },
+                    ]
+                })
+
+                if (existedUser) return {
+                    code: 422,
+                    message: 'User existed!',
+                };
+
+                session.startTransaction();
+
+                const newUser = new _User({
+                    username,
+                    email,
+                    password,
+                });
+
+                const createdUser = await newUser.save({session});
+
+                if (createdUser) {
+                    await _Otp.deleteMany({ email });
+                    
+                    await session.commitTransaction();
+                    session.endSession();
+
+                    return {
+                        code: 201,
+                        elements: createdUser,
+                    };
+                };
+            };
+        } catch (error) {
+            await session.abortTransaction();
+            session.endSession();
             throw error;
         };
     },

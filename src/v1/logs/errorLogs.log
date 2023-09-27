@@ -14,3 +14,6 @@ c5a2bc92-ed2d-46ca-9b62-8d91caea5d0e---27-09-2023	17:51:11---/api/v1/users---GET
 9954ca93-b709-429b-ad0d-8e60fcd9d054---27-09-2023	19:09:57---/api/v1/auth/register---POST---Missing credentials for "PLAIN"
 c72cc817-d7f8-4429-ae4e-e0323853d5ea---27-09-2023	19:10:24---/api/v1/auth/register---POST---Missing credentials for "PLAIN"
 e308bdc5-caff-416c-bab3-90b405877083---27-09-2023	19:10:55---/api/v1/auth/register---POST---Missing credentials for "PLAIN"
+316f0ba9-74af-4ede-bee2-3535ff648284---27-09-2023	19:27:53---/api/v1/auth/login---POST---Not Found
+164f83d4-d986-4c80-8ae9-10dd735f7089---27-09-2023	19:28:32---/api/v1/auth/verifyOtp---POST---Not Found
+e1819b69-011b-4a32-a085-0b97e268c09c---27-09-2023	22:05:38---/api/v1/auth/verifyOtp---POST---a is not defined

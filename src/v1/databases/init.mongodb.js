@@ -19,8 +19,8 @@ const newConnection =(uri) => {
     return conn;
 };
 
-const eCommerceConnection = newConnection(MONGODB_URI);
+const eCommerceDb = newConnection(MONGODB_URI);
 
 module.exports = {
-    eCommerceConnection,
+    eCommerceDb,
 };

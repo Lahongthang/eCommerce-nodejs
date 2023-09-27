@@ -1,5 +1,5 @@
 const { Schema } = require('mongoose');
-const { eCommerceConnection } = require('../databases/init.mongodb');
+const { eCommerceDb } = require('../databases/init.mongodb');
 const { generateHashCode } = require('../utils/generateHashCode');
 
 const UserSchema = new Schema({
@@ -24,4 +24,4 @@ UserSchema.pre('save', async function(next) {
     };
 });
 
-module.exports = eCommerceConnection.model('users', UserSchema);
+module.exports = eCommerceDb.model('users', UserSchema);

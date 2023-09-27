@@ -11,6 +11,15 @@ const generateHashCode = async (code, round = 10) => {
     };
 };
 
+const isValidCode = async (code, hashCode) => {
+    try {
+        return await bcrypt.compare(code, hashCode);
+    } catch (error) {
+        throw error;
+    };
+};
+
 module.exports = {
     generateHashCode,
+    isValidCode,
 };
