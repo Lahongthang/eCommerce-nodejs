@@ -10,3 +10,7 @@ c2518cce-8b73-4e06-b285-38601546d350---26-09-2023	16:16:51---/api/v1/users---GET
 f9dc5ed2-f220-4a65-abd4-63973352740b---27-09-2023	17:47:07---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms
 c5a2bc92-ed2d-46ca-9b62-8d91caea5d0e---27-09-2023	17:51:11---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms
 4eb043cf-a5da-4169-83de-4d15fedaa9d2---27-09-2023	17:52:01---/api/v1/users---GET---Operation `users.find()` buffering timed out after 10000ms
+96a2200e-c3a6-43d0-828c-ac0c3176099d---27-09-2023	19:07:51---/api/v1/user---PUT---Not Found
+9954ca93-b709-429b-ad0d-8e60fcd9d054---27-09-2023	19:09:57---/api/v1/auth/register---POST---Missing credentials for "PLAIN"
+c72cc817-d7f8-4429-ae4e-e0323853d5ea---27-09-2023	19:10:24---/api/v1/auth/register---POST---Missing credentials for "PLAIN"
+e308bdc5-caff-416c-bab3-90b405877083---27-09-2023	19:10:55---/api/v1/auth/register---POST---Missing credentials for "PLAIN"

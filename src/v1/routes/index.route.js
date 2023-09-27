@@ -14,8 +14,11 @@ routes.use('/checkStatus', (req, res, next) => {
 });
 
 // redis controller test
-routes.put('/api/v1/user', setPromise);
-routes.post('/api/v1/users', getPromise);
+// routes.put('/api/v1/user', setPromise);
+// routes.post('/api/v1/users', getPromise);
+
+routes.use('/api/v1/auth', require('./auth.route'));
+routes.use('/api/v1/users', require('./user.route'));
 
 routes.use((req, res, next) => {
     next(createError.NotFound());

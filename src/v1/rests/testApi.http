@@ -1,11 +1,13 @@
+###
 @url=http://localhost:8080
-
+###
+@baseUrl=http://localhost:8080/api/v1
 ### Test
 GET {{url}}/checkStatus
 
 
 ### Set key
-PUT {{url}}/api/v1/user
+PUT {{baseUrl}}/user
 Content-Type: application/json
 
 {
@@ -15,9 +17,24 @@ Content-Type: application/json
 
 
 ### Get key
-POST {{url}}/api/v1/users
+POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
     "key": "b"
+}
+
+
+### GET all user
+GET {{baseUrl}}/users
+
+
+### Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "Thang1",
+    "email": "thangla2013@gmail.com",
+    "password": "11111111"
 }
