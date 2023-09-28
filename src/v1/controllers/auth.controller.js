@@ -1,6 +1,6 @@
 'use strict';
 
-const { register, verifyOtp, login } = require('../services/auth.service');
+const { register, verifyOtp, login, refreshToken } = require('../services/auth.service');
 
 module.exports = {
     register: async (req, res, next) => {

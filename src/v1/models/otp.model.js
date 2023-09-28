@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 const { eCommerceDb } = require('../databases/init.mongodb');
-const { generateHashCode } = require('../utils/generateHashCode');
+const { generateHashCode } = require('../utils/hashCode');
 
 const OtpSchema = new Schema({
     email: { type: String, required: true, lowercase: true },

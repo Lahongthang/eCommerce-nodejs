@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 const { eCommerceDb } = require('../databases/init.mongodb');
-const { generateHashCode } = require('../utils/generateHashCode');
+const { generateHashCode } = require('../utils/hashCode');
 
 const UserSchema = new Schema({
     username: { type: String, required: true, unique: true },

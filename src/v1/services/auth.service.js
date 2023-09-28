@@ -5,10 +5,10 @@ const _User = require('../models/user.model');
 const _Otp = require('../models/otp.model');
 const { eCommerceDb } = require('../databases/init.mongodb');
 const { insertOtp } = require('../services/otp.service');
-const { generateOtp } = require('../utils/generateOtp');
+const { generateOtp } = require('../utils/otpGenerator');
 const { transportEmail } = require('../utils/transportEmail');
-const { isValidCode } = require('../utils/generateHashCode');
-const { signAccessToken, signRefreshToken } = require('../utils/generateToken');
+const { isValidCode } = require('../utils/hashCode');
+const { signAccessToken, signRefreshToken } = require('../utils/jwtService');
 
 module.exports = {
     register: async (data) => {
