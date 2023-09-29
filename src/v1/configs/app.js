@@ -4,6 +4,8 @@ module.exports = {
     REDIS_URI: process.env.REDIS_URI,
     ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
     REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET,
+    ACCESS_TOKEN_EX_TIME: 60,
+    REFRESH_TOKEN_EX_TIME: 365 * 24 * 60 * 60,
     SYSTEM: {
         MAIL: process.env.SYSTEM_MAIL,
         NAME: process.env.SYSTEM_NAME,

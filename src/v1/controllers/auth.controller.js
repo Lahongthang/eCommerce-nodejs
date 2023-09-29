@@ -28,4 +28,12 @@ module.exports = {
             next(error);
         };
     },
+    refreshToken: async (req, res, next) => {
+        try {
+            const { code, message, elements } = await refreshToken(req.body);
+            return res.status(code).json({ code, message, elements });
+        } catch (error) {
+            next(error);
+        };
+    },
 };

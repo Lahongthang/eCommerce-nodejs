@@ -27,7 +27,7 @@ Content-Type: application/json
 
 ### GET all user
 GET {{baseUrl}}/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE0NTE4NjFkY2UzZGVlYjIxNTQ1ZDciLCJpYXQiOjE2OTU4MzM0MTMsImV4cCI6MTY5NTgzMzQ0M30.mFyvOgIbnN8DdCFJDyE68R_qXIFPD64osZrwRWqTd_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE0NTE4NjFkY2UzZGVlYjIxNTQ1ZDciLCJpYXQiOjE2OTU4ODcyNjAsImV4cCI6MTY5NTg4NzI5MH0.UPERSIBwBc6xGVd2w2AiutZQI_1TZCw31u41MGlt_xE
 
 
 ### Register
@@ -60,4 +60,13 @@ Content-Type: application/json
 {
     "username": "Thangla",
     "password": "11111111"
+}
+
+
+### Refresh token
+POST {{baseUrl}}/auth/refreshToken
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE0NTE4NjFkY2UzZGVlYjIxNTQ1ZDciLCJpYXQiOjE2OTU5NjMzMzcsImV4cCI6MTcyNzUyMDkzN30.bdchxlRSI6-ozsxX-GeMG9Bixz25grn19atbl95jszs"
 }

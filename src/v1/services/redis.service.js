@@ -14,14 +14,14 @@ const client = require('../databases/init.redis');
 // };
 
 module.exports = {
-    REDIS_SET: async ({ key, value }) => {
+    redisSet: async (key, value, options) => {
         try {
-            return await client.set(key, value);
+            return await client.set(key, value, options);
         } catch (error) {
             throw error;
         };
     },
-    REDIS_GET: async (key) => {
+    redisGet: async (key) => {
         try {
             return await client.get(key);
         } catch (error) {

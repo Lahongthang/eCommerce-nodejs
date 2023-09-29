@@ -5,10 +5,12 @@ const _User = require('../models/user.model');
 const _Otp = require('../models/otp.model');
 const { eCommerceDb } = require('../databases/init.mongodb');
 const { insertOtp } = require('../services/otp.service');
+const { redisSet, redisGet } = require('../services/redis.service');
+const { REFRESH_TOKEN_EX_TIME } = require('../configs/app');
 const { generateOtp } = require('../utils/otpGenerator');
 const { transportEmail } = require('../utils/transportEmail');
 const { isValidCode } = require('../utils/hashCode');
-const { signAccessToken, signRefreshToken } = require('../utils/jwtService');
+const { signAccessToken, signRefreshToken, verifyRefreshToken } = require('../utils/jwtService');
 
 module.exports = {
     register: async (data) => {
@@ -124,6 +126,9 @@ module.exports = {
                 if (isValidPassword) {
                     const accessToken = signAccessToken(user._id);
                     const refreshToken = signRefreshToken(user._id);
+
+                    await redisSet(user._id.toString(), refreshToken, { EX: REFRESH_TOKEN_EX_TIME });
+
                     return {
                         code: 200,
                         message: 'Login success!',
@@ -139,6 +144,30 @@ module.exports = {
             return {
                 code: 422,
                 message: 'User name or password is incorrect!',
+            };
+        } catch (error) {
+            throw error;
+        };
+    },
+    refreshToken: async (data) => {
+        try {
+            const { refreshToken } = data;
+            const { userId } = verifyRefreshToken(refreshToken);
+
+            const existedToken = await redisGet(userId.toString());
+            if (existedToken !== refreshToken) return {
+                code: 401,
+                message: 'Token expired!!!',
+            };
+
+            const newAccessToken = signAccessToken(userId);
+
+            return {
+                code: 200,
+                message: 'Refresh token success!',
+                elements: {
+                    accessToken: newAccessToken,
+                },
             };
         } catch (error) {
             throw error;

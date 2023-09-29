@@ -9,7 +9,8 @@ const signAccessToken = (userId) => {
         expiresIn: 30,
     };
 
-    return jwt.sign(payload, secret, options);
+    const token = jwt.sign(payload, secret, options);
+    return token;
 };
 
 const signRefreshToken = (userId) => {
@@ -19,7 +20,8 @@ const signRefreshToken = (userId) => {
         expiresIn: '1y',
     };
 
-    return jwt.sign(payload, secret, options);
+    const token = jwt.sign(payload, secret, options);
+    return token;
 };
 
 const verifyAccessToken = (req, res, next) => {

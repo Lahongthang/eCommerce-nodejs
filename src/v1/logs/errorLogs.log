@@ -48,3 +48,15 @@ a4d29090-bbec-4a15-8020-4bc14b094206---27-09-2023	23:50:43---/api/v1/users---GET
 885e74d7-05c5-4912-b2af-096c1f06d0e3---27-09-2023	23:50:44---/api/v1/users---GET---Token expired!
 a5ceb6ed-cb08-44b5-8fb4-0cad108d2e0d---27-09-2023	23:50:45---/api/v1/users---GET---Token expired!
 30fcbc78-a5b1-4241-8659-e568dda64f6a---27-09-2023	23:50:46---/api/v1/users---GET---Token expired!
+7e3babab-25ac-4a95-bcaa-b5936386d790---28-09-2023	12:17:16---/api/v1/users---GET---Token expired!
+912ea07a-a542-4297-83f9-59820b59f7d6---28-09-2023	12:51:00---/api/v1/users---GET---Token expired!
+79bd1958-a65e-4aa1-aacd-711f5ea0443e---28-09-2023	13:00:11---/api/v1/users---GET---Token expired!
+3a151109-420a-4268-a7c4-90c2bdc3f4b7---28-09-2023	13:12:07---/api/v1/auth/refreshToken---POST---Unauthorized
+8f059337-32ba-4bc4-a13f-cfec1eedc6de---28-09-2023	13:12:23---/api/v1/auth/refreshToken---POST---Unauthorized
+fb2c6649-a871-4cf8-a49f-386b184a51e9---28-09-2023	13:15:46---/api/v1/users---GET---Token expired!
+6bf827fe-f507-4b22-920f-fd73eb7b20f3---28-09-2023	13:16:50---/api/v1/users---GET---Token expired!
+5c441c0e-f1e4-4590-b746-62ea0f95e88d---28-09-2023	14:36:23---/api/v1/users---GET---Token expired!
+42d4348c-adbe-43cc-b050-2baf25d506c8---28-09-2023	14:47:34---/api/v1/users---GET---Token expired!
+bc7befe7-af40-488d-9b6b-c35b593e2c4d---28-09-2023	14:50:43---/api/v1/auth/refreshToken---POST---Unauthorized
+2b42ca09-0d1b-4958-a03a-9794dddc3e75---28-09-2023	15:03:11---/api/v1/users---GET---Token expired!
+2fcba3a9-daa9-450b-880d-998176e0577d---28-09-2023	15:11:58---/api/v1/users---GET---Token expired!
