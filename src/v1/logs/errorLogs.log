@@ -73,3 +73,10 @@ d2a0d69e-362c-4505-adc1-662b21e9c650---30-09-2023	15:49:47---/api/v1/auth/verify
 537809a7-d92e-4e9f-82cd-f902e7a13c51---30-09-2023	17:11:21---/api/v1/auth/register---POST---a is not defined
 2834059f-b633-4f45-b239-496a91be1ed9---30-09-2023	21:43:01---/api/v1/auth/clearOtp---DELETE---Not Found
 9c0a9aa2-f187-4454-b9a4-bd9d23f364ab---30-09-2023	21:45:14---/api/v1/auth/clearOtp---DELETE---Not Found
+403cf351-227d-41ea-a0a9-b38acb07ab8f---30-09-2023	22:32:46---/api/v1/me---GET---Not Found
+b868f546-e41c-4ec4-be8e-14efe1c3e86e---30-09-2023	22:39:26---/api/v1/me---GET---Not Found
+bf5834ea-d523-4f24-9413-65a0479f9c24---30-09-2023	22:40:34---/api/v1/me---GET---Not Found
+b1d23a64-f69c-484b-b942-8bc8c1227d38---30-09-2023	22:41:47---/api/v1/me---GET---Not Found
+ce5b6325-abfb-4ca4-8e4f-be7584d2e533---30-09-2023	22:48:36---/api/v1/auth/logout---POST---Not Found
+8fde45a8-d2af-469f-9619-3ced7a1b6555---30-09-2023	22:48:46---/api/v1/me---GET---Not Found
+94169fe7-faf1-406f-be97-404aaa0dfe04---30-09-2023	22:51:11---/api/v1/me---GET---Not Found
