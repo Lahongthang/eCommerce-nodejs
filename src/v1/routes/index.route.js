@@ -27,7 +27,7 @@ routes.use((req, res, next) => {
 routes.use((err, req, res, next) => {
     logErrors(uuid(), req.url, req.method, err.message);
     res.status(err.status || 500).json({
-        status: err.status || 500,
+        code: err.status || 500,
         message: err.message,
     });
 });

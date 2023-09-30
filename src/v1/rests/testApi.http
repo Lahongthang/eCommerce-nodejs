@@ -27,7 +27,7 @@ Content-Type: application/json
 
 ### GET all user
 GET {{baseUrl}}/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE0NTE4NjFkY2UzZGVlYjIxNTQ1ZDciLCJpYXQiOjE2OTU4ODcyNjAsImV4cCI6MTY5NTg4NzI5MH0.UPERSIBwBc6xGVd2w2AiutZQI_1TZCw31u41MGlt_xE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE0NTE4NjFkY2UzZGVlYjIxNTQ1ZDciLCJpYXQiOjE2OTYwNTQyMTAsImV4cCI6MTY5NjA1NDI0MH0.sBuZvGPYctkcWH7_CF3pjRaWn7T9qxh2UlhaacKWJks
 
 
 ### Register
@@ -36,7 +36,7 @@ Content-Type: application/json
 
 {
     "username": "Thang1",
-    "email": "thangla2013@gmail.com",
+    "email": "lahongthang266@gmail.com",
     "password": "11111111"
 }
 
@@ -47,9 +47,9 @@ Content-Type: application/json
 
 {
     "username": "Thang1",
-    "email": "thangla2013@gmail.com",
+    "email": "lahongthang266@gmail.com",
     "password": "11111111",
-    "otp": "751563"
+    "otp": "371510"
 }
 
 
@@ -58,7 +58,7 @@ POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-    "username": "Thangla",
+    "username": "Thang1",
     "password": "11111111"
 }
 

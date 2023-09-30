@@ -22,7 +22,9 @@ module.exports = {
             });
             if (existedUsername) return {
                 code: 422,
-                message: 'User name existed!',
+                error: {
+                    username: 'User name is existed',
+                },
             };
 
             const existedEmail = await _User.findOne({
@@ -30,7 +32,9 @@ module.exports = {
             });
             if (existedEmail) return {
                 code: 422,
-                message: 'Email existed!',
+                error: {
+                    email: 'Email is existed',
+                },
             };
 
             const otp = generateOtp(6);
@@ -42,7 +46,6 @@ module.exports = {
             return {
                 code: 200,
                 message: 'Sent otp success!',
-                elements: 1,
             };
         } catch (error) {
             throw error;
@@ -58,7 +61,9 @@ module.exports = {
             
             if (isEmpty(otpHolder)) return {
                 code: 422,
-                message: 'Expired otp!',
+                error: {
+                    otp: 'Expired otp',
+                },
             };
 
             const lastOtp = otpHolder[otpHolder.length - 1]
@@ -67,20 +72,30 @@ module.exports = {
 
             if (!isValidOtp ) return {
                 code: 422,
-                message: 'Invalid otp!',
+                error: {
+                    otp: 'Invalid otp',
+                },
             };
 
             if (isValidOtp && email === lastOtp.email) {
-                const existedUser = await _User.findOne({
-                    $or: [
-                        { email: { $regex: new RegExp(email, 'i') } },
-                        { username: { $regex: new RegExp(username, 'i') } },
-                    ]
-                })
-
-                if (existedUser) return {
+                const existedUsername = await _User.findOne({
+                    username: { $regex: new RegExp(username, 'i') }
+                });
+                if (existedUsername) return {
                     code: 422,
-                    message: 'User existed!',
+                    error: {
+                        username: 'User name is existed',
+                    },
+                };
+
+                const existedEmail = await _User.findOne({
+                    email: { $regex: new RegExp(email, 'i') }
+                });
+                if (existedEmail) return {
+                    code: 422,
+                    error: {
+                        email: 'Email is existed',
+                    },
                 };
 
                 session.startTransaction();
@@ -91,7 +106,7 @@ module.exports = {
                     password,
                 });
 
-                const createdUser = await newUser.save({session});
+                const createdUser = await newUser.save();
 
                 if (createdUser) {
                     await _Otp.deleteMany({ email });
@@ -101,6 +116,7 @@ module.exports = {
 
                     return {
                         code: 201,
+                        message: 'Verify otp success',
                         elements: createdUser,
                     };
                 };
@@ -131,7 +147,7 @@ module.exports = {
 
                     return {
                         code: 200,
-                        message: 'Login success!',
+                        message: 'Login success',
                         elements: {
                             user,
                             accessToken,
@@ -143,7 +159,10 @@ module.exports = {
 
             return {
                 code: 422,
-                message: 'User name or password is incorrect!',
+                error: {
+                    username: 'User name or password is incorrect',
+                    password: 'User name or password is incorrect',
+                },
             };
         } catch (error) {
             throw error;
@@ -157,14 +176,16 @@ module.exports = {
             const existedToken = await redisGet(userId.toString());
             if (existedToken !== refreshToken) return {
                 code: 401,
-                message: 'Token expired!!!',
+                error: {
+                    refreshToken: 'Refresh token expired',
+                },
             };
 
             const newAccessToken = signAccessToken(userId);
 
             return {
                 code: 200,
-                message: 'Refresh token success!',
+                message: 'Refresh token success',
                 elements: {
                     accessToken: newAccessToken,
                 },

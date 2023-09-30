@@ -60,3 +60,16 @@ fb2c6649-a871-4cf8-a49f-386b184a51e9---28-09-2023	13:15:46---/api/v1/users---GET
 bc7befe7-af40-488d-9b6b-c35b593e2c4d---28-09-2023	14:50:43---/api/v1/auth/refreshToken---POST---Unauthorized
 2b42ca09-0d1b-4958-a03a-9794dddc3e75---28-09-2023	15:03:11---/api/v1/users---GET---Token expired!
 2fcba3a9-daa9-450b-880d-998176e0577d---28-09-2023	15:11:58---/api/v1/users---GET---Token expired!
+d0b7ab00-b94f-4730-a79d-18863c4b95ef---29-09-2023	22:53:40---/api/v1/users---GET---Token expired!
+4c631dd2-1133-491f-9854-458ec018be09---30-09-2023	13:10:04---/api/v1/users---GET---Token expired!
+a043fbbe-f3a4-4868-975d-ae073e7df706---30-09-2023	13:39:29---/api/v1/auth/register---POST---"password" is required
+bb548375-50e0-46f9-9b64-8d38e50702e4---30-09-2023	13:40:25---/api/v1/auth/register---POST---"password" is required
+0e2a60a6-9714-4d0e-b58f-667d368cde52---30-09-2023	14:01:22---/api/v1/auth/register---POST---Invalid status code: undefined
+5d47b975-c07e-4668-85f3-ebaa3f8f0231---30-09-2023	14:02:09---/api/v1/auth/register---POST---Invalid status code: undefined
+ceedf94e-b1e2-4a98-ad99-5a5e62d1fd1d---30-09-2023	14:03:13---/api/v1/users---GET---Token expired!
+7eee1623-4522-482c-826f-b237310a2218---30-09-2023	14:09:44---/api/v1/auth/register---POST---createError.Conflict(...).headers is not a function
+d2a0d69e-362c-4505-adc1-662b21e9c650---30-09-2023	15:49:47---/api/v1/auth/verifyOtp---POST---Transaction numbers are only allowed on a replica set member or mongos
+840f5c9e-e519-45ce-8323-a3ffb5fba6c5---30-09-2023	17:10:33---/api/v1/auth/register---POST---a is not defined
+537809a7-d92e-4e9f-82cd-f902e7a13c51---30-09-2023	17:11:21---/api/v1/auth/register---POST---a is not defined
+2834059f-b633-4f45-b239-496a91be1ed9---30-09-2023	21:43:01---/api/v1/auth/clearOtp---DELETE---Not Found
+9c0a9aa2-f187-4454-b9a4-bd9d23f364ab---30-09-2023	21:45:14---/api/v1/auth/clearOtp---DELETE---Not Found
