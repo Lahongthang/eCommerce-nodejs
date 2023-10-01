@@ -16,7 +16,7 @@ const client = require('../databases/init.redis');
 module.exports = {
     redisSet: async (key, value, options) => {
         try {
-            return await client.set(key, value, options);
+            await client.set(key, value, options);
         } catch (error) {
             throw error;
         };
@@ -24,6 +24,13 @@ module.exports = {
     redisGet: async (key) => {
         try {
             return await client.get(key);
+        } catch (error) {
+            throw error;
+        };
+    },
+    redisDelete: async (key) => {
+        try {
+            await client.del(key);
         } catch (error) {
             throw error;
         };

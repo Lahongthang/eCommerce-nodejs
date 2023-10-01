@@ -5,7 +5,7 @@ const _User = require('../models/user.model');
 const _Otp = require('../models/otp.model');
 const { eCommerceDb } = require('../databases/init.mongodb');
 const { insertOtp } = require('../services/otp.service');
-const { redisSet, redisGet } = require('../services/redis.service');
+const { redisSet, redisGet, redisDelete } = require('../services/redis.service');
 const { REFRESH_TOKEN_EX_TIME, ACCESS_TOKEN_EX_TIME } = require('../configs/app');
 const { generateOtp } = require('../utils/otpGenerator');
 const { transportEmail } = require('../utils/transportEmail');
@@ -195,6 +195,29 @@ module.exports = {
                 elements: {
                     accessToken: newAccessToken,
                 },
+            };
+        } catch (error) {
+            throw error;
+        };
+    },
+    logout: async (data) => {
+        try {
+            const { refreshToken } = data;
+            const { userId } = verifyRefreshToken(refreshToken);
+
+            const existedToken = await redisGet(userId.toString());
+            if (existedToken !== refreshToken) return {
+                code: 401,
+                error: {
+                    refreshToken: 'Refresh token expired',
+                },
+            };
+
+            await redisDelete(userId);
+
+            return {
+                code: 200,
+                message: 'Logout success',
             };
         } catch (error) {
             throw error;

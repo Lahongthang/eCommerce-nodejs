@@ -64,7 +64,17 @@ Content-Type: application/json
 
 
 ### Refresh token
-POST {{baseUrl}}/auth/refreshToken
+PUT {{baseUrl}}/auth/refreshToken
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE0NTE4NjFkY2UzZGVlYjIxNTQ1ZDciLCJpYXQiOjE2OTU5NjMzMzcsImV4cCI6MTcyNzUyMDkzN30.bdchxlRSI6-ozsxX-GeMG9Bixz25grn19atbl95jszs"
+}
+
+
+
+### Logout
+DELETE {{baseUrl}}/auth/logout
 Content-Type: application/json
 
 {

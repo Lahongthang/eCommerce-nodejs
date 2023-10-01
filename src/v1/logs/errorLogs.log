@@ -80,3 +80,17 @@ b1d23a64-f69c-484b-b942-8bc8c1227d38---30-09-2023	22:41:47---/api/v1/me---GET---
 ce5b6325-abfb-4ca4-8e4f-be7584d2e533---30-09-2023	22:48:36---/api/v1/auth/logout---POST---Not Found
 8fde45a8-d2af-469f-9619-3ced7a1b6555---30-09-2023	22:48:46---/api/v1/me---GET---Not Found
 94169fe7-faf1-406f-be97-404aaa0dfe04---30-09-2023	22:51:11---/api/v1/me---GET---Not Found
+931abb40-cd30-4120-a3fb-9b4da8b81b68---01-10-2023	10:38:30---/api/v1/me---GET---Not Found
+5f358ea0-2e26-4e19-bda3-aed47cb52ddd---01-10-2023	17:45:51---/api/v1/me---GET---Not Found
+8460aeeb-ed7c-4c62-854b-40599db07c2e---01-10-2023	17:59:05---/api/v1/me---GET---Not Found
+59fb1c32-4662-4e95-8107-8467a5618974---01-10-2023	21:47:52---/api/v1/auth/logout---POST---Not Found
+211623f7-2fb6-4f03-bd44-8ba769924133---01-10-2023	22:18:52---/api/v1/auth/logout---POST---Cannot read properties of undefined (reading 'toString')
+8e827d94-14b2-4b3a-b4f0-6e39557421ab---01-10-2023	22:20:55---/api/v1/auth/logout---POST---Cannot read properties of undefined (reading 'toString')
+e6baeb67-4c67-4061-8fb7-ceeb4484327a---01-10-2023	22:22:06---/api/v1/auth/logout---POST---Cannot read properties of undefined (reading 'toString')
+44e789bd-8cca-4071-893c-99fe7a8cde73---01-10-2023	22:23:06---/api/v1/auth/logout---POST---next is not defined
+9bbc8f94-f659-42e4-bac8-91452c516bde---01-10-2023	22:24:07---/api/v1/auth/logout---POST---Access denied!
+36271149-a679-47ac-a383-ebe40883e391---01-10-2023	22:26:37---/api/v1/auth/logout---POST---Access denied!
+32fb3e02-c833-43e5-92f8-027c24801618---01-10-2023	22:27:27---/api/v1/auth/logout---POST---Access denied!
+9af6c0e3-866c-4f1f-8783-7fb0b94a186f---01-10-2023	22:28:14---/api/v1/auth/logout---POST---Access denied!
+8e758b7a-f9e2-4306-b185-fce80f182ca5---01-10-2023	22:28:57---/api/v1/auth/logout---POST---Access denied!
+7ca7a195-2fbe-4987-aed5-feee03d2db7f---01-10-2023	22:31:17---/api/v1/auth/logout---POST---Access denied!

@@ -1,6 +1,6 @@
 'use strict';
 
-const { register, verifyOtp, login, refreshToken } = require('../services/auth.service');
+const { register, verifyOtp, login, refreshToken, logout } = require('../services/auth.service');
 
 module.exports = {
     register: async (req, res, next) => {
@@ -32,6 +32,14 @@ module.exports = {
         try {
             const { code, error, message, elements } = await refreshToken(req.body);
             return res.status(code).json({ code, error, message, elements });
+        } catch (error) {
+            next(error);
+        };
+    },
+    logout: async (req, res, next) => {
+        try {
+            const { code, error, message } = await logout(req.body);
+            return res.status(code).json({ code, error, message });
         } catch (error) {
             next(error);
         };

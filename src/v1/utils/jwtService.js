@@ -40,8 +40,12 @@ const verifyAccessToken = (req, res, next) => {
 };
 
 const verifyRefreshToken = (refreshToken) => {
+    if (!refreshToken) throw createError.Unauthorized('Access denied!');
     return jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err, payload) => {
-        if (err) throw createError.Unauthorized();
+        if (err) {
+            const errMsg = err.name === 'TokenExpiredError' ? 'Token expired!' : 'Invalid token!';
+            throw createError.Unauthorized(errMsg);
+        }
         return payload;
     });
 };
