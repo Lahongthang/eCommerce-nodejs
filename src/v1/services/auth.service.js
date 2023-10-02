@@ -6,7 +6,7 @@ const _Otp = require('../models/otp.model');
 const { eCommerceDb } = require('../databases/init.mongodb');
 const { insertOtp } = require('../services/otp.service');
 const { redisSet, redisGet, redisDelete } = require('../services/redis.service');
-const { REFRESH_TOKEN_EX_TIME, ACCESS_TOKEN_EX_TIME } = require('../configs/app');
+const { REFRESH_TOKEN_EX_TIME } = require('../configs/app');
 const { generateOtp } = require('../utils/otpGenerator');
 const { transportEmail } = require('../utils/transportEmail');
 const { isValidCode } = require('../utils/hashCode');
@@ -149,15 +149,9 @@ module.exports = {
                         code: 200,
                         message: 'Login success',
                         elements: {
-                            user,
-                            accessToken: {
-                                value: accessToken,
-                                expiresAt: Date.now() + ACCESS_TOKEN_EX_TIME * 1000,
-                            },
-                            refreshToken: {
-                                value: refreshToken,
-                                expiresAt: Date.now() + REFRESH_TOKEN_EX_TIME * 1000,
-                            },
+                            user: (({password, ...rest}) => rest)(user._doc),
+                            accessToken,
+                            refreshToken,
                         },
                     };
                 };
